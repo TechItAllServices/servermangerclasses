@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DISC Selector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .disc-buttons {
+      margin-top: 20px;
+    }
+
+    .disc-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #3498db;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .disc-button:hover {
+      background-color: #2980b9;
+    }
+
+    #disc-info {
+      display: none;
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 5px;
+      width: 60%;
+      margin: auto;
+      text-align: left;
+    }
+
+    #disc-info.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Select a DISC Code:</h1>
+  <div class="disc-buttons">
+    <button class="disc-button" onclick="showDisc('blue', 'blue.mp3')">Code Blue</button>
+    <button class="disc-button" onclick="showDisc('green', 'green.mp3')">Code Green</button>
+    <button class="disc-button" onclick="showDisc('yellow', 'yellow.mp3')">Code Yellow</button>
+    <button class="disc-button" onclick="showDisc('red', 'red.mp3')">Code Red</button>
+    <button class="disc-button" onclick="showDisc('black', 'black.mp3')">Code Black</button>
+  </div>
+
+  <div id="disc-info" class="active">
+    <h2>DISC Information:</h2>
+    <!-- Placeholder content -->
+    <p>Click on a button to view information.</p>
+  </div>
+
+  <audio id="blueSound" src="blue.mp3"></audio>
+  <audio id="greenSound" src="green.mp3"></audio>
+  <audio id="yellowSound" src="yellow.mp3"></audio>
+  <audio id="redSound" src="red.mp3"></audio>
+  <audio id="blackSound" src="black.mp3"></audio>
+
+  <script>
+    function showDisc(disc, soundFile) {
+      const discInfo = document.getElementById('disc-info');
+      discInfo.innerHTML = `
+        <h2>${capitalizeFirstLetter(disc)} Information:</h2>
+        <p>Information for ${capitalizeFirstLetter(disc)} goes here.</p>
+      `;
+      discInfo.classList.add('active');
+      
+      const sound = new Audio(soundFile);
+      sound.play();
+    }
+
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  </script>
+</body>
+</html>
