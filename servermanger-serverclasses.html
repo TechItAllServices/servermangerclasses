@@ -72,21 +72,59 @@
   <audio id="blackSound" src="black.mp3"></audio>
 
   <script>
-    function showDisc(disc, soundFile) {
-      const discInfo = document.getElementById('disc-info');
-      discInfo.innerHTML = `
+function showDisc(disc, soundFile) {
+  const discInfo = document.getElementById('disc-info');
+  let infoText = '';
+  
+  switch (disc) {
+    case 'blue':
+      infoText = `
         <h2>${capitalizeFirstLetter(disc)} Information:</h2>
-        <p>Information for ${capitalizeFirstLetter(disc)} goes here.</p>
+        <p>Indicates regular and uninterrupted operations. No immediate action is required. All standard activities are permitted.</p>
       `;
-      discInfo.classList.add('active');
-      
-      const sound = new Audio(soundFile);
-      sound.play();
-    }
+      break;
+    case 'green':
+      infoText = `
+        <h2>${capitalizeFirstLetter(disc)} Information:</h2>
+        <p>Indicates an escalated state of alert for potential suspicious activities. Individuals exhibiting suspicious behavior will be halted and subject to inquiry. Enhanced security protocols will be enforced.</p>
+      `;
+      break;
+    case 'yellow':
+      infoText = `
+        <h2>${capitalizeFirstLetter(disc)} Information:</h2>
+        <p>Signals an unauthorized attempt to breach server access. Server Security will promptly intervene to prevent any unauthorized entry. Heightened security measures will be activated.</p>
+      `;
+      break;
+    case 'red':
+      infoText = `
+        <h2>${capitalizeFirstLetter(disc)} Information:</h2>
+        <p>Confirms the presence of an unauthorized entity within the servers. Security personnel must report to the domain under attack. Immediate evacuation of non-essential personnel to the safety domain is advised.</p>
+      `;
+      break;
+    case 'black':
+      infoText = `
+        <h2>${capitalizeFirstLetter(disc)} Information:</h2>
+        <p>Indicates complete server compromise, resulting in a loss of control. Immediate and complete evacuation of all personnel from the affected domain is mandatory. No individuals should remain within the domain. Full evacuation to designated safety zones is imperative.</p>
+      `;
+      break;
+    default:
+      infoText = `
+        <h2>${capitalizeFirstLetter(disc)} Information:</h2>
+        <p>No information available.</p>
+      `;
+  }
+  
+  discInfo.innerHTML = infoText;
+  discInfo.classList.add('active');
+  
+  const sound = new Audio(soundFile);
+  sound.play();
+}
 
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
   </script>
 </body>
 </html>
