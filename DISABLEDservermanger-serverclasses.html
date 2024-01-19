@@ -23,13 +23,13 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      background-color: #3498db;
+      background-color: #FF0000;
       color: white;
       transition: background-color 0.3s ease;
     }
 
     .disc-button:hover {
-      background-color: #2980b9;
+      background-color: #FF0000;
     }
 
     #disc-info {
@@ -60,9 +60,9 @@
   </div>
 
   <div id="disc-info" class="active">
-    <h2>Code Information:</h2>
+    <h2 style="color: red;">Code BLACK:</h2>
     <!-- Placeholder content -->
-    <p>Click on a button to view set server code.</p>
+    <p>PANNEL DISABLED. EVACUATE THE SERVERS!</p>
   </div>
 
   <audio id="blueSound" src="blue.mp3"></audio>
@@ -71,7 +71,7 @@
   <audio id="redSound" src="red.mp3"></audio>
   <audio id="blackSound" src="black.mp3"></audio>
 
-  <script>
+<!--   <script>
 function showDisc(disc, soundFile) {
   const discInfo = document.getElementById('disc-info');
   let infoText = '';
@@ -104,7 +104,7 @@ function showDisc(disc, soundFile) {
     case 'black':
       infoText = `
         <h2>Code ${capitalizeFirstLetter(disc)} Information:</h2>
-        <p>Indicates complete server compromise, resulting in a loss of control. Immediate and complete evacuation of all personnel from the server is mandatory. No individuals should remain within the domain. Full evacuation to designated EVAC zones is imperative. NOTE: Code black is NOT active! Code black can only be activated my the owner or if the server is compromised!</p>
+        <p>Indicates complete server compromise, resulting in a loss of control. Immediate and complete evacuation of all personnel from the server is mandatory. No individuals should remain within the domain. Full evacuation to designated EVAC zones is imperative.</p>
       `;
       break;
     default:
@@ -125,6 +125,6 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-  </script>
+  </script> -->
 </body>
 </html>
